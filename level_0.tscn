@@ -44,7 +44,7 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
 position = Vector2( 500, 350 )
 script = ExtResource( 1 )
-jumps_amount = 4
+jumps_amount = 2
 coyote_time_length = 0.2
 jump_power = 400
 

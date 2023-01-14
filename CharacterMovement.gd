@@ -53,6 +53,9 @@ func _physics_process(delta):
 		jumps = jumps_amount
 		gravity = 0
 		coyote_time = 0
+		
+	if is_on_ceiling():
+		gravity = 0
 	
 	if not is_on_floor() and jumps == jumps_amount:
 		coyote_time += delta

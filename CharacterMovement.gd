@@ -8,7 +8,7 @@ var gravity = 0
 
 var jumps = 0
 
-export var jumps_amount = 2
+export var jumps_amount = 0
 
 var coyote_time
 
@@ -54,7 +54,7 @@ func _physics_process(delta):
 		gravity = 0
 		coyote_time = 0
 	
-	if not is_on_floor() and jumps == 2:
+	if not is_on_floor() and jumps == jumps_amount:
 		coyote_time += delta
 		if coyote_time > coyote_time_length:
 			jumps = jumps_amount - 1

@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Moving_Platform1.png" type="Texture" id=1]
+[ext_resource path="res://MovingPlatform.gd" type="Script" id=2]
+[ext_resource path="res://Moving_Platform3.png" type="Texture" id=3]
+[ext_resource path="res://Moving_Platform2.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 48, 8 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 1.0
+} ]
+
+[node name="Moving_Platform" type="KinematicBody2D" groups=["MovingPlatform", "User added blocks"]]
+script = ExtResource( 2 )
+time = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 2 )
+
+[node name="Tween" type="Tween" parent="."]
+playback_process_mode = 0

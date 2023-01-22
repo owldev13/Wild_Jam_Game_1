@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://LevelConstructor.gd" type="Script" id=1]
-[ext_resource path="res://SimpleTile.png" type="Texture" id=2]
-[ext_resource path="res://Moving_Platform.png" type="Texture" id=3]
+[ext_resource path="res://Crate.png" type="Texture" id=2]
+[ext_resource path="res://Moving_Platform3.png" type="Texture" id=3]
+[ext_resource path="res://Ramp.png" type="Texture" id=4]
 
-[node name="HBoxContainer" type="HBoxContainer"]
+[node name="HBoxContainer" type="VBoxContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 28.0
@@ -12,28 +13,26 @@ margin_top = 530.0
 margin_right = 136.0
 margin_bottom = 568.0
 script = ExtResource( 1 )
-shawblades = 1
 ground_tiles = -1
 moving_platforms = 1
 
 [node name="Ground" type="Button" parent="."]
-margin_right = 44.0
-margin_bottom = 638.0
+margin_right = 1132.0
+margin_bottom = 38.0
 icon = ExtResource( 2 )
 
 [node name="Moving_Platform" type="Button" parent="."]
-margin_left = 48.0
-margin_right = 92.0
-margin_bottom = 638.0
+margin_top = 42.0
+margin_right = 1132.0
+margin_bottom = 64.0
 icon = ExtResource( 3 )
 
-[node name="Shawblade" type="Button" parent="."]
-margin_left = 96.0
-margin_right = 108.0
-margin_bottom = 638.0
-
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Ramp" type="Button" parent="."]
+margin_top = 68.0
+margin_right = 1132.0
+margin_bottom = 106.0
+icon = ExtResource( 4 )
 
 [connection signal="pressed" from="Ground" to="." method="_on_Ground_pressed"]
 [connection signal="pressed" from="Moving_Platform" to="." method="_on_Moving_Platform_pressed"]
-[connection signal="pressed" from="Shawblade" to="." method="_on_Shawblade_pressed"]
+[connection signal="pressed" from="Ramp" to="." method="_on_Shawblade_pressed"]

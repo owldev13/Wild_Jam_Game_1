@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://StartingDoor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tilemap.png" type="Texture" id=2]
@@ -9,8 +9,7 @@
 [ext_resource path="res://PanningCamera.gd" type="Script" id=7]
 [ext_resource path="res://Key.tscn" type="PackedScene" id=8]
 [ext_resource path="res://EndDoor.tscn" type="PackedScene" id=9]
-[ext_resource path="res://GateToggleButton.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Gate.tscn" type="PackedScene" id=11]
+[ext_resource path="res://DialogBox.tscn" type="PackedScene" id=10]
 
 [sub_resource type="ConvexPolygonShape2D" id=6]
 points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
@@ -233,11 +232,14 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 6 )
 
+[node name="Sprite" parent="." instance=ExtResource( 8 )]
+position = Vector2( 725, 430 )
+
 [node name="BasePlatforms" type="TileMap" parent="."]
 tile_set = SubResource( 5 )
 cell_size = Vector2( 32, 32 )
 format = 1
-tile_data = PoolIntArray( 524301, 0, 0, 524302, 1, 0, 524303, 1, 0, 524304, 1, 0, 524305, 1, 0, 524306, 1, 0, 524307, 1, 0, 524308, 1, 0, 524309, 1, 0, 524310, 1, 0, 524311, 1, 0, 524312, 1, 0, 524317, 1, 0, 524318, 1, 0, 524319, 2, 0, 589837, 7, 0, 589852, 1, 0, 589853, 8, 0, 589854, 8, 0, 589855, 3, 0, 655373, 7, 0, 655388, 3, 0, 655389, 8, 0, 655390, 8, 0, 655391, 3, 0, 720909, 7, 0, 720924, 3, 0, 720925, 8, 0, 720926, 8, 0, 720927, 3, 0, 786445, 7, 0, 786454, 0, 0, 786455, 1, 0, 786456, 2, 0, 786460, 3, 0, 786461, 8, 0, 786462, 8, 0, 786463, 3, 0, 851981, 6, 0, 851982, 5, 0, 851983, 5, 0, 851984, 5, 0, 851985, 5, 0, 851986, 5, 0, 851987, 5, 0, 851988, 5, 0, 851989, 5, 0, 851990, 7, 0, 851991, 8, 0, 851992, 3, 0, 851993, 5, 0, 851994, 5, 0, 851995, 5, 0, 851996, 4, 0, 851997, 8, 0, 851998, 8, 0, 851999, 3, 0 )
+tile_data = PoolIntArray( 524300, 0, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 524304, 1, 0, 524305, 1, 0, 524306, 1, 0, 524307, 1, 0, 524308, 1, 0, 524309, 1, 0, 524310, 1, 0, 524311, 1, 0, 524312, 1, 0, 524313, 1, 0, 524314, 1, 0, 524315, 1, 0, 524316, 2, 0, 589836, 7, 0, 589852, 3, 0, 655372, 7, 0, 655388, 3, 0, 720908, 7, 0, 720924, 3, 0, 786444, 7, 0, 786460, 3, 0, 851980, 6, 0, 851981, 5, 0, 851982, 5, 0, 851983, 5, 0, 851984, 5, 0, 851985, 5, 0, 851986, 5, 0, 851987, 5, 0, 851988, 5, 0, 851989, 7, 0, 851993, 3, 0, 851994, 5, 0, 851995, 5, 0, 851996, 4, 0, 917525, 6, 0, 917526, 5, 0, 917527, 5, 0, 917528, 5, 0, 917529, 4, 0 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -255,7 +257,17 @@ margin_bottom = 454.0
 custom_constants/separation = 14
 alignment = 1
 ramps = 1
-ground_tiles = 1
+ground_tiles = 0
+moving_platforms = 0
+
+[node name="DialogBox" parent="Camera2D" instance=ExtResource( 10 )]
+margin_left = 372.0
+margin_top = 150.0
+margin_right = 618.0
+margin_bottom = 218.0
+rect_scale = Vector2( 1.00193, 1.0061 )
+dialog_path = "res://Dialog_Tutorial.json"
+text_speed = 0.1
 
 [node name="Grid" parent="." instance=ExtResource( 4 )]
 
@@ -266,14 +278,5 @@ script = ExtResource( 5 )
 position = Vector2( 457, 376 )
 
 [node name="EndDoor" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1003, 216 )
-next_level = "res://Base_Screen.tscn"
-
-[node name="Gate" parent="." instance=ExtResource( 11 )]
-position = Vector2( 500, 240 )
-
-[node name="GateToggleButton" parent="." instance=ExtResource( 10 )]
-position = Vector2( 688, 410 )
-
-[node name="Key" parent="." instance=ExtResource( 8 )]
-position = Vector2( 455, 233 )
+position = Vector2( 877, 376 )
+next_level = "res://tutorial_2.tscn"
